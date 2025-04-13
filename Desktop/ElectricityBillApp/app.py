@@ -11,19 +11,18 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import os
 
-# Path for tesseract executable (useful for OCR)
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
 # Load the trained Random Forest model (Step 2 update)
-# Set the path to the model file within the same directory as the app
-model_path = os.path.join(os.path.dirname(__file__), "randomforest_model.pkl")
+model_path = "randomforest_model.pkl"  # Model file name
 
-# Ensure the model file is in the same directory
+# Ensure the model file exists
 if os.path.exists(model_path):
     with open(model_path, "rb") as file:
         model = pickle.load(file)
 else:
-    st.error("❌ Model file 'randomforest_model.pkl' not found in the app directory.")
+    st.error("Model file not found. Please ensure it's uploaded correctly to the repository.")
+    st.stop()
 
 def extract_kwh_from_text(text):
     match = re.search(r'(\d+(\.\d+)?)\s*kWh', text, re.IGNORECASE)
