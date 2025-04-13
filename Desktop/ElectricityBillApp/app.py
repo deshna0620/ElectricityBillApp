@@ -13,15 +13,15 @@ import os
 
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
-# Load the trained Random Forest model (Step 2 update)
-model_path = "randomforest_model.pkl"  # Model file name
+# Dynamically get the model file path
+model_path = os.path.join(os.getcwd(), "randomforest_model.pkl")
 
-# Ensure the model file exists
+# Check if the file exists before attempting to load
 if os.path.exists(model_path):
     with open(model_path, "rb") as file:
         model = pickle.load(file)
 else:
-    st.error("Model file not found. Please ensure it's uploaded correctly to the repository.")
+    st.error("Model file 'randomforest_model.pkl' not found.")
     st.stop()
 
 def extract_kwh_from_text(text):
