@@ -1,0 +1,9 @@
+streamlit
+numpy
+pandas
+pillow
+pdfplumber
+pytesseract
+matplotlib
+seaborn
+scikit-learn
