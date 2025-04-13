@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+
+# Streamlit
+.streamlit/
+
+# System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Virtual Environments
+env/
+venv/
+.env/
+
+# Others
+*.log
+node_modules/
