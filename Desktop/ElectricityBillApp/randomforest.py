@@ -4,10 +4,10 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+import pickle
 
-# Load the dataset
-file_path = r"C:\Users\Neeraj kumar gothi\Desktop\ElectricityBillApp\Household energy bill data.csv"
-df = pd.read_csv(file_path)
+# Load the dataset (use relative path for compatibility across environments)
+df = pd.read_csv('Household energy bill data.csv')
 
 # Display dataset info
 print(df.info())  # Check columns and data types
@@ -49,7 +49,6 @@ print(f"Root Mean Squared Error (RMSE): {rmse:.2f}")
 print(f"R² Score: {r2:.2f}")
 
 # Save the trained model for use in Streamlit
-import pickle
 with open("randomforest_model.pkl", "wb") as file:
     pickle.dump(rf_model, file)
 
